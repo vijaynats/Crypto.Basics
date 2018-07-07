@@ -26,6 +26,11 @@ namespace Crypto.Basics
                     Console.WriteLine("Computing hash....");
 
                     Console.WriteLine("SHA2 hash : {0}", Hasher.getSHA2Hash(fileText));
+
+                    Console.Write("\nEnter Authkey for HMAC Hash : ");
+                    string authKey = Console.ReadLine();
+
+                    Console.WriteLine("SHA2 HMAC Hash : {0}", Hasher.getSHA2HMACHash(fileText, authKey));
                 }
                 catch (Exception ex)
                 {

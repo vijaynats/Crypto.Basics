@@ -21,6 +21,13 @@ namespace Crypto.Basics
             return getHash(str, HashTypes.SHA256);
         }
 
+        public static string getSHA2HMACHash(string str, string key)
+        {
+            HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+
+            return getHexString(hmac.ComputeHash(Encoding.Default.GetBytes(str)));
+        }
+
         private static string getHash(string str, HashTypes type)
         {
             dynamic hasher = new MD5CryptoServiceProvider();
